@@ -1,31 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>TF-IDF Result</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 </head>
-<body class="bg-gray-100 p-6">
-    <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-8">
-        <h1 class="text-2xl font-bold mb-6">Top 50 Words</h1>
-        <table class="min-w-full table-auto">
+<body>
+    <div class="container">
+        <h1>Top 50 Words by IDF</h1>
+        <table id="wordsTable">
             <thead>
-                <tr class="bg-gray-200">
-                    <th class="px-4 py-2">Word</th>
-                    <th class="px-4 py-2">TF</th>
-                    <th class="px-4 py-2">IDF</th>
+                <tr>
+                    <th>Word</th>
+                    <th>TF</th>
+                    <th>IDF</th>
                 </tr>
             </thead>
             <tbody>
                 {% for word in words %}
-                <tr class="text-center hover:bg-gray-100">
-                    <td class="border px-4 py-2">{{ word.word }}</td>
-                    <td class="border px-4 py-2">{{ word.tf }}</td>
-                    <td class="border px-4 py-2">{{ word.idf }}</td>
+                <tr>
+                    <td>{{ word.word }}</td>
+                    <td>{{ word.tf }}</td>
+                    <td>{{ word.idf }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a href="/" class="inline-block mt-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Upload Another</a>
+        <a href="/" class="button">Upload Another File</a>
     </div>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#wordsTable').DataTable({
+                "pageLength": 10
+            });
+        });
+    </script>
 </body>
 </html>
