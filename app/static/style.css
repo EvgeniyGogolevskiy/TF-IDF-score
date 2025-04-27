@@ -60,7 +60,6 @@ tr:nth-child(even) td {
     background-color: #45a049;
 }
 
-/* Дополнительные стили для DataTables */
 .dataTables_wrapper {
     margin-top: 20px;
 }

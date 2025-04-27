@@ -1,14 +1,13 @@
 from fastapi import FastAPI, UploadFile, File, Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles  # Импортируем для работы с файлами
+from fastapi.staticfiles import StaticFiles
 from app.services.text_processing import process_text
 import uvicorn
 from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 
-# Настройка для отдачи статических файлов
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 templates = Jinja2Templates(directory="app/templates")

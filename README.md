@@ -11,7 +11,7 @@
 
 ## How to Run
 ```bash
-git clone https://github.com/your-username/tfidf-uploader.git
-cd tfidf-uploader
+git clone https://github.com/EvgeniyGogolevskiy/TF-IDF-score.git
+cd test_task_for_Lesta_Games
 docker build -t tfidf-app .
 docker run -p 8000:8000 tfidf-app
